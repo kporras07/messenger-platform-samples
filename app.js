@@ -122,6 +122,33 @@ app.post('/webhook', function (req, res) {
 });
 
 /*
+ * Process request to send message to given user.
+ */
+app.post('/sendMessage', function (req, res) {
+  var data = req.body;
+
+  // Make sure userID is set.
+  if (typeof data.userID !== 'undefined') {
+    var userID = data.userID;
+    var message = null;
+    if (typeof data.message !== 'undefined') {
+      message = data.message;
+    }
+    else {
+      message = 'TESTING';
+    }
+
+    sendTextMessage(userID, message);
+
+    // Assume all went well.
+    //
+    // You must send back a 200, within 20 seconds, to let us know you've
+    // successfully received the callback. Otherwise, the request will time out.
+    res.sendStatus(200);
+  }
+});
+
+/*
  * This path is used for account linking. The account linking call-to-action
  * (sendAccountLinking) is pointed to this URL.
  *
