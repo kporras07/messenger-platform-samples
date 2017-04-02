@@ -127,7 +127,7 @@ app.post('/webhook', function (req, res) {
 app.get('/message', function (req, res) {
   var data = req.body;
 
-  console.log(data, 'D');
+  console.log(req, 'REQ');
   // Make sure userID is set.
   if (typeof data.userID !== 'undefined') {
     var userID = data.userID;
