@@ -124,7 +124,7 @@ app.post('/webhook', function (req, res) {
 /*
  * Process request to send message to given user.
  */
-app.post('/sendMessage', function (req, res) {
+app.get('/sendMessage', function (req, res) {
   var data = req.body;
 
   // Make sure userID is set.
