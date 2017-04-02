@@ -138,6 +138,8 @@ app.post('/message', function (req, res) {
     else {
       message = 'TESTING';
     }
+console.log(userID, 'UID');
+console.log(message, 'MSG');
 
     sendTextMessage(userID, message);
 
